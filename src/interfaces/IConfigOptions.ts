@@ -1,4 +1,4 @@
-import { Options } from 'Ajv';
+import Ajv from 'ajv';
 
 export interface IConfigOptions {
 	/**
@@ -27,7 +27,7 @@ export interface IConfigOptions {
 	* enables debugging output for dotenv
 	*/
 	debug?: boolean;
-	ajvOptions?: Options;
+	ajvOptions?: Ajv.Options;
 	envDir?: string;
 	baseDir?: string;
 	schemaFileName?: string;
