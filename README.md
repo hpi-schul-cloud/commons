@@ -60,8 +60,8 @@ default.schema.json
 ```json
 {
     "title": "Example Schema with dependency",
-	"description": "This schema declares a dependency between two properties.",
-	"additionalProperties": false,
+    "description": "This schema declares a dependency between two properties.",
+    "additionalProperties": false,
     "type": "object",
     "properties": {
         "SERVICE_PROPERTY": {
