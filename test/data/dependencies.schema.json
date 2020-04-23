@@ -2,6 +2,7 @@
 	"title": "dependency test schema",
 	"type": "object",
 	"description": "this schema declares different dependency methodologies based on specific values defined",
+	"additionalProperties": false,
 	"properties": {
 		"FEATURE_FLAG": {
 			"type": "boolean",
@@ -21,12 +22,12 @@
 			"FEATURE_FLAG": {
 				"const": true
 			}
-		},
-		"then": {
-			"required": [
-				"FEATURE_OPTION",
-				"OTHER_FEATURE_OPTION"
-			]
 		}
+	},
+	"then": {
+		"required": [
+			"FEATURE_OPTION",
+			"OTHER_FEATURE_OPTION"
+		]
 	}
 }

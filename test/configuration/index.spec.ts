@@ -259,6 +259,9 @@ describe('test configuration', () => {
 
 	describe('schema dependencies', () => {
 		it('property-value based dependency (feature-flag condition)', () => {
+			// Specifying dependencies this way does not work when the ajv option {removeAdditional: 'all'} is set,
+			// because it would remove all values which are not mentioned in the if block.
+			// https://github.com/epoberezkin/ajv#filtering-data
 			const config = new Configuration({
 				schemaFileName: 'dependencies.schema.json',
 				configDir: 'test/data',
@@ -369,6 +372,7 @@ describe('test configuration', () => {
 				"title": "dependency test schema",
 				"type": "object",
 				"description": "this schema declares different dependency methodologies based on specific values defined",
+				"additionalProperties": false,
 				"properties": {
 					"FEATURE_FLAG": {
 						"type": "boolean",
@@ -443,6 +447,7 @@ describe('test configuration', () => {
 				"title": "dependency test schema",
 				"type": "object",
 				"description": "this schema declares different dependency methodologies based on specific values defined",
+				"additionalProperties": false,
 				"properties": {
 					"FEATURE_FLAG": {
 						"type": "boolean",
@@ -528,6 +533,7 @@ describe('test configuration', () => {
 				"title": "dependency test schema",
 				"type": "object",
 				"description": "this schema declares different dependency methodologies based on specific values defined",
+				"additionalProperties": false,
 				"properties": {
 					"SERVICE": {
 						"type": "string",
