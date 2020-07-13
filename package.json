@@ -19,6 +19,11 @@
 	"publishConfig": {
 		"access": "public"
 	},
+	"engines": {
+		"node": ">=10.0.0",
+		"npm": ">=6.0.0"
+	},
+	"engineStrict": true,
 	"devDependencies": {
 		"@istanbuljs/nyc-config-typescript": "^1.0.1",
 		"@types/chai": "^4.2.4",
