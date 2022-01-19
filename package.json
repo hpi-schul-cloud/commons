@@ -1,6 +1,6 @@
 {
 	"name": "@hpi-schul-cloud/commons",
-	"version": "1.3.3",
+	"version": "1.3.4",
 	"description": "Helpers and common tools for the hpi school-cloud.",
 	"repository": {
 		"github": "https: //github.com/hpi-schul-cloud/commons"
@@ -28,12 +28,12 @@
 	"devDependencies": {
 		"@istanbuljs/nyc-config-typescript": "^1.0.1",
 		"@types/chai": "^4.2.4",
-		"@types/config": "0.0.37",
+		"@types/config": "0.0.39",
 		"@types/dot-object": "^2.1.0",
 		"@types/lodash": "^4.14.164",
-		"@types/mocha": "^8.0.0",
-		"@types/node": "^14.11.2",
-		"@types/sinon": "^9.0.5",
+		"@types/mocha": "^9.0.0",
+		"@types/node": "^16.0.0",
+		"@types/sinon": "^10.0.0",
 		"@typescript-eslint/eslint-plugin": "^2.23.0",
 		"@typescript-eslint/parser": "^2.32.0",
 		"acorn": "^8.0.4",
@@ -51,12 +51,12 @@
 		"eslint-plugin-prettier": "^3.1.4",
 		"eslint-plugin-react": "^7.19.0",
 		"eslint-plugin-react-hooks": "^4.1.0",
-		"mocha": "^8.0.1",
+		"mocha": "^9.0.1",
 		"nyc": "^15.0.0",
 		"prettier": "^2.0.5",
 		"shx": "^0.3.3",
-		"sinon": "^9.0.3",
-		"ts-node": "^9.0.0",
+		"sinon": "^11.0.0",
+		"ts-node": "^10.0.0",
 		"tsconfig-paths": "^3.9.0",
 		"tslint": "^5.20.1",
 		"tslint-config-airbnb": "^5.11.2",
@@ -66,7 +66,7 @@
 		"ajv": "^6.12.5",
 		"config": "^3.3.1",
 		"dot-object": "^2.1.4",
-		"dotenv": "^8.2.0",
+		"dotenv": "^10.0.0",
 		"lodash": "^4.17.20"
 	},
 	"nyc": {
