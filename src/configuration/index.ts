@@ -37,7 +37,7 @@ export const defaultOptions: IRequiredConfigOptions = {
 	throwOnError: true,
 	allowRuntimeChangesInEnv: ['test'],
 	defaultNodeEnv: 'development',
-	loadFilesFromEnv: ['NODE_ENV', 'SC_INSTANCE'],
+	loadFilesFromEnv: ['NODE_ENV'],
 	printHierarchy: false,
 	secretMatches: ['SECRET', 'KEY', 'SALT', 'PASSWORD'],
 };
@@ -190,10 +190,6 @@ export class Configuration implements IConfiguration {
 					data: fileJson,
 				};
 				configurations.push(hierarchy);
-				this.options.logger.debug(
-					'successfully parsed json from',
-					fullFileName
-				);
 			} else {
 				this.options.logger.error(
 					'config file not found, ignore...',

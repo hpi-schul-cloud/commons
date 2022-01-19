@@ -9,6 +9,12 @@ Allowed Types of change: `Added`, `Changed`, `Deprecated`, `Removed`, `Fixed`, `
 
 ## Unreleased
 
+## 1.3.4
+
+- general updates
+- remove SC_INSTANCE from parsed environment stages
+- update prettier rules
+
 ## 1.3.3
 
 ### Fixed
