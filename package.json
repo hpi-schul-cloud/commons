@@ -51,7 +51,7 @@
 		"eslint-plugin-react": "^7.19.0",
 		"eslint-plugin-react-hooks": "^4.1.0",
 		"mocha": "^11.1.0",
-		"nyc": "^15.0.0",
+		"nyc": "^17.1.0",
 		"prettier": "^2.0.5",
 		"shx": "^0.3.3",
 		"sinon": "^11.0.0",
