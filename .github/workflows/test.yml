@@ -6,24 +6,13 @@ jobs:
   test:
     name: test
 
-    strategy:
-      matrix:
-        node-version: [22]
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
-    - name: Cache node modules
-      uses: actions/cache@v4
-      with:
-        path: ~/.npm
-        key: ${{ runner.os }}-${{ matrix.node-version }}-commons-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-${{ matrix.node-version }}-commons-
-    - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: 24
     - run: npm ci --prefer-offline --no-audit
     - run: npm run build --if-present
     - run: npm test
