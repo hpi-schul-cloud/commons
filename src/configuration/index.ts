@@ -54,7 +54,7 @@ let projectConfigOptions: IConfigOptions = {};
 const scConfigFilePath = path.join(defaultOptions.baseDir, 'sc-config.json');
 if (fs.existsSync(scConfigFilePath)) {
 	projectConfigOptions = JSON.parse(
-		fs.readFileSync(scConfigFilePath, defaultOptions.fileEncoding)
+		fs.readFileSync(scConfigFilePath, defaultOptions.fileEncoding),
 	);
 }
 
@@ -94,7 +94,7 @@ export class Configuration implements IConfiguration {
 		//
 		if (this.readyState !== ReadyState.InstanceCreated) {
 			throw new Error(
-				'init() is only executable once after configuration construction.'
+				'init() is only executable once after configuration construction.',
 			);
 		}
 		this.readyState = ReadyState.InitStarted;
@@ -114,23 +114,21 @@ export class Configuration implements IConfiguration {
 		const envFilePath = path.join(
 			this.options.baseDir,
 			this.options.envDir,
-			'.env'
+			'.env',
 		);
 		let dotEnv: any | null = null;
 		if (fs.existsSync(envFilePath)) {
+			dotenv.config({ debug: !!this.options.debug });
 			dotEnv = dotenv.parse(
 				fs.readFileSync(envFilePath, {
 					encoding: this.options.fileEncoding,
 				}),
-				{
-					debug: !!this.options.debug,
-				}
 			);
 		}
 		const dotAndEnv: dotenv.DotenvParseOutput | any = loadash.merge(
 			{},
 			dotEnv,
-			loadash.cloneDeep(env)
+			loadash.cloneDeep(env),
 		);
 
 		// set default NODE_ENV
@@ -157,14 +155,14 @@ export class Configuration implements IConfiguration {
 					// error case: should parse envName but is has not been defined
 					this.options.logger.error(
 						'ignore envName, this property is not defined in current environment',
-						envName
+						envName,
 					);
 				} else if (configurationFileNames.includes(dotAndEnv[envName])) {
 					// error case: the file is already added, do not add it twice
 					const fileName = dotAndEnv[envName];
 					this.options.logger.error(
 						'ignore fileName, already added this file before',
-						fileName
+						fileName,
 					);
 				} else {
 					// success case: add value to hierarchy of files to be parsed
@@ -174,13 +172,13 @@ export class Configuration implements IConfiguration {
 		}
 		this.options.logger.debug(
 			'will parse following configuration filenames in given order',
-			configurationFileNames
+			configurationFileNames,
 		);
 		for (const file of configurationFileNames) {
 			const fullFileName = path.join(
 				this.options.baseDir,
 				this.options.configDir,
-				file + '.json'
+				file + '.json',
 			);
 			if (fs.existsSync(fullFileName)) {
 				const fileJson = this.loadJSONFromFileName(fullFileName);
@@ -193,7 +191,7 @@ export class Configuration implements IConfiguration {
 			} else {
 				this.options.logger.error(
 					'config file not found, ignore...',
-					fullFileName
+					fullFileName,
 				);
 			}
 		}
@@ -234,9 +232,9 @@ export class Configuration implements IConfiguration {
 		const mergedConfiguration = loadash.merge(
 			{},
 			...configurations.map(
-				(configurationHierarchy) => configurationHierarchy.data
+				(configurationHierarchy) => configurationHierarchy.data,
 			),
-			{ NODE_ENV: this.NODE_ENV }
+			{ NODE_ENV: this.NODE_ENV },
 		);
 		this.parse(mergedConfiguration);
 
@@ -268,7 +266,7 @@ export class Configuration implements IConfiguration {
 		return path.join(
 			this.options.baseDir,
 			this.options.configDir,
-			this.options.schemaFileName
+			this.options.schemaFileName,
 		);
 	}
 
@@ -314,7 +312,7 @@ export class Configuration implements IConfiguration {
 	getConfigurationHierarchy(): IConfigHierarchy[] {
 		if (this.runtimeChangesAllowed()) {
 			this.options.logger.warn(
-				'exported hierarchy eventually has been changed due runtime changes are allowed'
+				'exported hierarchy eventually has been changed due runtime changes are allowed',
 			);
 		}
 		return loadash.cloneDeep(this.configurationHierarchy);
@@ -331,11 +329,11 @@ export class Configuration implements IConfiguration {
 			let data = {};
 			log(
 				'Configuration - last configuration hierarchy # has been applied. Current NODE_ENV is set to',
-				this.NODE_ENV
+				this.NODE_ENV,
 			);
 			if (this.runtimeChangesAllowed()) {
 				log(
-					'Configuration hierarchy displayed contains startup state and does not contain runtime changes!'
+					'Configuration hierarchy displayed contains startup state and does not contain runtime changes!',
 				);
 			}
 			if (Array.isArray(this.configurationHierarchy)) {
@@ -357,7 +355,7 @@ export class Configuration implements IConfiguration {
 						log(
 							' - valid, including data from before (only the final version must be valid):',
 							valid,
-							err
+							err,
 						);
 					}
 					if (this.options.plainSecrets === true) {
@@ -365,7 +363,7 @@ export class Configuration implements IConfiguration {
 					}
 					log(
 						' - data, including data from before:',
-						this.secretCleaner.filterSecretValues(data)
+						this.secretCleaner.filterSecretValues(data),
 					);
 				});
 			} else {
@@ -374,7 +372,7 @@ export class Configuration implements IConfiguration {
 		} catch (err) {
 			this.options.logger.error(
 				'An error occured while printing the configuration history...',
-				err
+				err,
 			);
 		}
 	}
@@ -553,7 +551,7 @@ export class Configuration implements IConfiguration {
 	private ensureInitialized(): boolean {
 		if (this.readyState !== ReadyState.InitFinished) {
 			throw new ConfigurationError(
-				'Initialization not completed, current state is ' + this.readyState
+				'Initialization not completed, current state is ' + this.readyState,
 			);
 		}
 		return true;
@@ -572,7 +570,7 @@ export class Configuration implements IConfiguration {
 			return;
 		}
 		throw new ConfigurationError(
-			`Configuration changes during runtime are not allowed in environment ${this.NODE_ENV}. You may add desired environments to options.allowRuntimeChangesInEnv array to allow runtime changes which are supposed to be only for test reasons.`
+			`Configuration changes during runtime are not allowed in environment ${this.NODE_ENV}. You may add desired environments to options.allowRuntimeChangesInEnv array to allow runtime changes which are supposed to be only for test reasons.`,
 		);
 	}
 

@@ -9,6 +9,12 @@ Allowed Types of change: `Added`, `Changed`, `Deprecated`, `Removed`, `Fixed`, `
 
 ## Unreleased
 
+## 2.0.0
+
+- general updates
+- update of dotenv 10 to 17
+- removal of anchient istanbul typescript config
+
 ## 1.3.4
 
 - general updates
