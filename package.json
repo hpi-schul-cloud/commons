@@ -3,7 +3,7 @@
 	"version": "2.0.0",
 	"description": "Helpers and common tools for the hpi school-cloud.",
 	"repository": {
-		"github": "https: //github.com/hpi-schul-cloud/commons"
+		"github": "https://github.com/hpi-schul-cloud/commons"
 	},
 	"license": "AGPL-3.0",
 	"main": "lib/index.js",
