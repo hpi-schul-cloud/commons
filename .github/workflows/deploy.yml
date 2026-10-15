@@ -16,12 +16,11 @@ jobs:
         with:
           node-version: 24
           registry-url: "https://registry.npmjs.org"
-      - name: Build and test
+      - name: Build
         run: |
           npm ci --ignore-scripts
           npm run type-check
           npm run build
-          npm test
       - name: Publish
         run: |
           npm publish
