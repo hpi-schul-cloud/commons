@@ -1,6 +1,6 @@
 # Commons
 
-[![npm version](https://badge.fury.io/js/%40schul-cloud%2Fcommons.svg)](https://www.npmjs.com/package/@schul-cloud/commons)
+[![npm version](https://badge.fury.io/js/%40schul-cloud%2Fcommons.svg)](https://www.npmjs.com/package/@hpi-schul-cloud/commons)
 [![Test Action](https://github.com/schul-cloud/commons/workflows/Test/badge.svg)](https://github.com/schul-cloud/commons/actions)
 [![Deployment Action](https://github.com/schul-cloud/commons/workflows/Build%20and%20Publish/badge.svg)](https://github.com/schul-cloud/commons/actions)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/fd0d792b16a342a69df80cc4e96ef1f8)](https://www.codacy.com/manual/schul-cloud/commons?utm_source=github.com&utm_medium=referral&utm_content=schul-cloud/commons&utm_campaign=Badge_Grade)
@@ -14,7 +14,7 @@
 
 ## Install
 
-    npm install @schul-cloud/commons --save
+    npm install @hpi-schul-cloud/commons --save
 
 ## Test
 
@@ -116,11 +116,11 @@ index.js
     // Access Configuration as Singleton, using default export
     // Initialization is done on first access
     // uses IConfigOptions optionally defined in a sc-config.json file
-    import { Configuration as config } from "@schul-cloud/commons";
+    import { Configuration as config } from "@hpi-schul-cloud/commons";
 
     // Access configuration as class
     // IConfigOptions can be set in constructor options
-    import { TestConfiguration } from "@schul-cloud/commons";
+    import { TestConfiguration } from "@hpi-schul-cloud/commons";
     const config = new TestConfiguration(options);
 
     // Then you may run...
