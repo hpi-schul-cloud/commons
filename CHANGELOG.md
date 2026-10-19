@@ -9,6 +9,12 @@ Allowed Types of change: `Added`, `Changed`, `Deprecated`, `Removed`, `Fixed`, `
 
 ## Unreleased
 
+## 2.0.1
+
+### Fixed
+
+- issue in 2.0.0: prevent configuration loading from writing .env values into process.env
+
 ## 2.0.0
 
 - general updates

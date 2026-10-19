@@ -116,20 +116,15 @@ export class Configuration implements IConfiguration {
 			this.options.envDir,
 			'.env',
 		);
-		let dotEnv: any | null = null;
+		let dotEnv: dotenv.DotenvParseOutput | null = null;
 		if (fs.existsSync(envFilePath)) {
-			dotenv.config({ debug: !!this.options.debug });
 			dotEnv = dotenv.parse(
 				fs.readFileSync(envFilePath, {
 					encoding: this.options.fileEncoding,
 				}),
 			);
 		}
-		const dotAndEnv: dotenv.DotenvParseOutput | any = loadash.merge(
-			{},
-			dotEnv,
-			loadash.cloneDeep(env),
-		);
+		const dotAndEnv = loadash.merge({}, dotEnv, loadash.cloneDeep(env));
 
 		// set default NODE_ENV
 		if ('NODE_ENV' in dotAndEnv) {
